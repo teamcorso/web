@@ -23,57 +23,27 @@ public class Controller extends HttpServlet {
 		int endIndex=uri.lastIndexOf(".do");
 		String command=uri.substring(beginIndex+1, endIndex);
 		System.out.println(command);
-		String destination="WEB-INF/jsp/error.jsp";
+     	Command action= new NoCommandAction();
 		switch (command){
 		case "saveStudent":
-			saveStudent();
+			action = new SaveStudentAction();
 			break;
 		case "allCourses": 
-			destination = allCourses(request,response);
+			action = new AllCoursesAction();
+			//destination = allCourses(request,response);
 			break;
 		case "searchCourses": 
-			searchCourses();
+			action = new SearchCoursesAction();
 			break;
 		case "enrollStudent": 
-			enrollStudent();
+			action = new EnrollStudentAction();
 			break;
 		case "studentsInCourse": 
-			studentsInCourse();
+			action = new StudentInCourseAction();
 			break;
 		}
+		String destination = action.execute(request, response);
 		RequestDispatcher rd= request.getRequestDispatcher(destination);
 		rd.forward(request, response);
 	}
-
-
-	private void studentsInCourse() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void enrollStudent() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private void searchCourses() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private String allCourses(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		Command action=new AllCoursesAction();
-		 return action.execute(request, response);
-		
-	}
-
-
-	private void saveStudent() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
