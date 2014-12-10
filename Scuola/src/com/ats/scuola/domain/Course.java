@@ -1,7 +1,7 @@
 package com.ats.scuola.domain;
 
 public class Course {
-	private int id;
+	private int id; 
 	private String name;
 	private String description;
 	private double cost;
