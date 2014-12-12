@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ats.scuola.domain.Course;
+
+
+import com.ats.scuola.domain.entities.Course;
 import com.ats.scuola.infrastructure.SchoolRepository;
 
 public class AllCoursesAction implements Command{
