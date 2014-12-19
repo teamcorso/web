@@ -25,6 +25,9 @@ public class Controller extends HttpServlet {
 		System.out.println(command);
      	Command action= new NoCommandAction();
 		switch (command){
+		case "showStudentInsertForm":
+			action = new ShowStudentInsertFormAction();
+			break;
 		case "saveStudent":
 			action = new SaveStudentAction();
 			break;
